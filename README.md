@@ -5,6 +5,25 @@ WinGo is a tool similar to PsExec by Mark Russinovich, but rather than being tie
 # Usage
 ```
 WinGo <address> <username> <domain>
+./WinGo 192.168.7.142 Administrator TESTDOMAIN
+Password: 
+[*] Initiating remote WinGo session...
+[*] Loading extensions...
+[+] Successfully loaded extension: cmd
+[+] Successfully loaded extension: process
+[+] Successfully loaded extension: services
+[+] Successfully loaded extension: shell
+
+___       ______       _________      
+__ |     / /__(_)________  ____/_____ 
+__ | /| / /__  /__  __ \  / __ _  __ \
+__ |/ |/ / _  / _  / / / /_/ / / /_/ /
+____/|__/  /_/  /_/ /_/\____/  \____/ 
+                                                                          
+
+Windows Remote Administration Shell v1.0
+
+WinGo C:\WINDOWS\system32> 
 ```
 # Folders
 There are two folders currently associated with WinGo. They are 'downloads' and 'extensions'. The downloads folder will store any files transferred from the remote host via the 'get' command, and extensions holds any standard api extensions as well as your own custom extensions. 
