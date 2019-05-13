@@ -174,4 +174,139 @@ USERDOMAIN=WORKGROUP
 WinGo C:\>
 ```
 ## Services
-services - Gets a complete list of all installed services on the remote server (includes device drivers)
+services - Gets a complete list of all installed services on the remote server (includes device drivers). Provides service name, display name, current state, and service type.
+```
+Examples:
+WinGo C:\Windows\system32> services
+Name: gupdate
+Display Name: Google Update Service (gupdate)
+State: STOPPED
+Type: WIN32_OWN_PROCESS
+
+Name: gupdatem
+Display Name: Google Update Service (gupdatem)
+State: STOPPED
+Type: WIN32_OWN_PROCESS
+
+Name: GoogleChromeElevationService
+Display Name: Google Chrome Elevation Service
+State: STOPPED
+Type: WIN32_OWN_PROCESS
+
+...truncated...
+```
+service-query - Provides the same information as the services command, but for the specified service.
+```
+Examples:
+WinGo C:\Windows\system32> service-query gupdate
+Name: gupdate
+Display Name: Google Update Service (gupdate)
+State: STOPPED
+Type: WIN32_OWN_PROCESS
+
+WinGo C:\Windows\system32>
+```
+service-start - Starts the requested service.
+```
+Examples:
+WinGo C:\Windows\system32> service-start gupdate
+[+] Success
+
+WinGo C:\Windows\system32>
+```
+service-stop - Stops the requested service
+```
+Examples:
+WinGo C:\Windows\system32> service-stop eventlog
+[+] Success
+
+WinGo C:\Windows\system32>
+```
+## Process
+ps - Gets a list of all running processes and provides details such as pid, process name, process image, and physical memory usage.
+```
+Examples:
+WinGo C:\Windows\system32> ps
+Pid: 888
+Name: svchost
+Image: C:\Windows\system32\svchost.exe
+Physical Memory Usage (bytes): 9113600
+
+Pid: 1776
+Name: svchost
+Image: C:\Windows\system32\svchost.exe
+Physical Memory Usage (bytes): 2617344
+
+Pid: 3644
+Name: WmiPrvSE
+Image: C:\Windows\system32\wbem\wmiprvse.exe
+Physical Memory Usage (bytes): 27750400
+...truncated...
+```
+ps-start - Creates a new process. Takes two arguments; a fully qualified image path and an optional argument to provide to the process at startup.
+```
+Examples:
+WinGo C:\Windows\system32> ps-start c:\windows\notepad.exe c:\windows\win.ini
+[+] Success
+
+WinGo C:\Windows\system32>
+```
+ps-kill - Kills a process. Requires process id. 
+```
+Examples:
+WinGo C:\Windows\system32> ps-kill 2008
+[+] Success
+
+WinGo C:\Windows\system32>
+```
+ps-suspend - Suspends a process. Requires process id.
+```
+Examples:
+WinGo C:\Windows\system32> ps-suspend 2332
+[+] Success
+
+WinGo C:\Windows\system32>
+```
+ps-resume - Resumes a suspended process. Requires process id.
+```
+Examples:
+WinGo C:\Windows\system32> ps-resume 2332
+[+] Success
+
+WinGo C:\Windows\system32>
+```
+## Cmd
+cmd - Launches cmd.exe with the provided command passed as an argument to the process and returns the result of the command. Strings requiring additional escaping can use the grave accent character.
+```
+Examples:
+WinGo C:\Windows\system32> cmd whoami
+nt authority\system
+
+
+WinGo C:\Windows\system32>
+
+cmd <argument that has spaces which must be denoted with double quotes>
+WinGo C:\Windows\system32> cmd "netstat -ano"
+
+Active Connections
+
+  Proto  Local Address          Foreign Address        State           PID
+  TCP    0.0.0.0:135            0.0.0.0:0              LISTENING       904
+  TCP    0.0.0.0:445            0.0.0.0:0              LISTENING       4
+  TCP    0.0.0.0:3389           0.0.0.0:0              LISTENING       1244
+  TCP    0.0.0.0:49152          0.0.0.0:0              LISTENING       636
+  TCP    0.0.0.0:49153          0.0.0.0:0              LISTENING       1020
+  TCP    0.0.0.0:49154          0.0.0.0:0              LISTENING       792
+  TCP    0.0.0.0:49156          0.0.0.0:0              LISTENING       736
+  TCP    0.0.0.0:49157          0.0.0.0:0              LISTENING       748
+  ...truncated..
+  
+cmd <argument that has spaces which must be denoted with double quotes and which requires additional quotes (use grave accent)>
+WinGo C:\Program Files> cmd "type `c:\program files\desktop.ini`"
+
+[.ShellClassInfo]
+LocalizedResourceName=@%SystemRoot%\system32\shell32.dll,-21781
+
+
+WinGo C:\Program Files>
+```
