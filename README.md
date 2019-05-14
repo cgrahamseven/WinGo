@@ -32,7 +32,7 @@ Extensions are simply C# source code files. When writing your own extension, the
 # Standard API
 A number of standard api routines are exposed as part of the core functionality of WinGo and their source is contained in the extensions folder under cmd, process, services, and shell. Their usage is as follows:
 ## Shell
-cd - Change the current shell directory. This works similarly to cmd.exe in that you can change directories using accessible environment variables, using fully qualified paths, or using paths available in your current directory.
+**cd** - Change the current shell directory. This works similarly to cmd.exe in that you can change directories using accessible environment variables, using fully qualified paths, or using paths available in your current directory.
 ```
 Examples:
 cd %TMP% - changes directory to your temp folder
@@ -53,7 +53,7 @@ WinGo C:\> cd "Program Files"
 
 WinGo C:\Program Files>
 ```
-dir - get a complete directory listing for either the current directory (if no path is supplied) or for a specified path. Environment variables are allowed here as well.
+**dir** - get a complete directory listing for either the current directory (if no path is supplied) or for a specified path. Environment variables are allowed here as well.
 ```
 Examples:
 WinGo C:\> dir
@@ -77,7 +77,7 @@ WinGo C:\> dir
 
 WinGo C:\>
 ```
-del - deletes a file either from the current directory (if no complete path is provided) or a specified file path
+**del** - deletes a file either from the current directory (if no complete path is provided) or a specified file path
 ```
 Examples:
 WinGo C:\> dir
@@ -105,7 +105,7 @@ WinGo C:\> del filetodelete
 
 WinGo C:\>
 ```
-copy - copies a file from the current directory (if no complete path is provided) to the provided destination or from the provided full path to the provided destination
+**copy** - copies a file from the current directory (if no complete path is provided) to the provided destination or from the provided full path to the provided destination
 ```
 Examples:
 WinGo C:\> copy c:\windows\system32\cmd.exe test.exe
@@ -133,7 +133,7 @@ WinGo C:\> dir
 
 WinGo C:\>
 ```
-env - Get a list of all accessible environment variables
+**env** - Get a list of all accessible environment variables
 ```
 Examples:
 WinGo C:\> env
@@ -173,8 +173,30 @@ USERDOMAIN=WORKGROUP
 
 WinGo C:\>
 ```
+**get** - gets a file from the remote server and saves it locally in your downloads folder. Requires either the full path to the remote file, or the filename of the file you want to retrieve from your shell's current directory. Additionally, the name to save the file as locally is also required. 
+```
+Examples:
+WinGo C:\Windows\system32> get c:\windows\system32\cmd.exe cmd.exe
+[+] Successfully downloaded file to downloads/cmd.exe
+
+
+WinGo C:\Windows\system32> get cmd.exe cmd.exe
+[+] Successfully downloaded file to downloads/cmd.exe
+
+
+WinGo C:\Windows\system32>
+```
+**put** - transfers a local file to the remote server. The path to the local file is required in addition to the full path to save the file as on the remote server. If a full path is not given, WinGo saves the file in the current directory of the shell.
+```
+Examples:
+WinGo C:\> put test.exe test.exe
+[+] Successfully wrote file to C:\test.exe
+
+
+WinGo C:\>
+```
 ## Services
-services - Gets a complete list of all installed services on the remote server (includes device drivers). Provides service name, display name, current state, and service type.
+**services** - Gets a complete list of all installed services on the remote server (includes device drivers). Provides service name, display name, current state, and service type.
 ```
 Examples:
 WinGo C:\Windows\system32> services
@@ -195,7 +217,7 @@ Type: WIN32_OWN_PROCESS
 
 ...truncated...
 ```
-service-query - Provides the same information as the services command, but for the specified service.
+**service-query** - Provides the same information as the services command, but for the specified service. Requires service name.
 ```
 Examples:
 WinGo C:\Windows\system32> service-query gupdate
@@ -206,7 +228,7 @@ Type: WIN32_OWN_PROCESS
 
 WinGo C:\Windows\system32>
 ```
-service-start - Starts the requested service.
+**service-start** - Starts the requested service. Requires service name.
 ```
 Examples:
 WinGo C:\Windows\system32> service-start gupdate
@@ -214,7 +236,7 @@ WinGo C:\Windows\system32> service-start gupdate
 
 WinGo C:\Windows\system32>
 ```
-service-stop - Stops the requested service
+**service-stop** - Stops the requested service. Requires service name.
 ```
 Examples:
 WinGo C:\Windows\system32> service-stop eventlog
@@ -223,7 +245,7 @@ WinGo C:\Windows\system32> service-stop eventlog
 WinGo C:\Windows\system32>
 ```
 ## Process
-ps - Gets a list of all running processes and provides details such as pid, process name, process image, and physical memory usage.
+**ps** - Gets a list of all running processes and provides details such as pid, process name, process image, and physical memory usage.
 ```
 Examples:
 WinGo C:\Windows\system32> ps
@@ -243,7 +265,7 @@ Image: C:\Windows\system32\wbem\wmiprvse.exe
 Physical Memory Usage (bytes): 27750400
 ...truncated...
 ```
-ps-start - Creates a new process. Takes two arguments; a fully qualified image path and an optional argument to provide to the process at startup.
+**ps-start** - Creates a new process. Takes two arguments; a fully qualified image path and an optional argument to provide to the process at startup.
 ```
 Examples:
 WinGo C:\Windows\system32> ps-start c:\windows\notepad.exe c:\windows\win.ini
@@ -251,7 +273,7 @@ WinGo C:\Windows\system32> ps-start c:\windows\notepad.exe c:\windows\win.ini
 
 WinGo C:\Windows\system32>
 ```
-ps-kill - Kills a process. Requires process id. 
+**ps-kill** - Kills a process. Requires process id. 
 ```
 Examples:
 WinGo C:\Windows\system32> ps-kill 2008
@@ -259,7 +281,7 @@ WinGo C:\Windows\system32> ps-kill 2008
 
 WinGo C:\Windows\system32>
 ```
-ps-suspend - Suspends a process. Requires process id.
+**ps-suspend** - Suspends a process. Requires process id.
 ```
 Examples:
 WinGo C:\Windows\system32> ps-suspend 2332
@@ -267,7 +289,7 @@ WinGo C:\Windows\system32> ps-suspend 2332
 
 WinGo C:\Windows\system32>
 ```
-ps-resume - Resumes a suspended process. Requires process id.
+**ps-resume** - Resumes a suspended process. Requires process id.
 ```
 Examples:
 WinGo C:\Windows\system32> ps-resume 2332
@@ -276,7 +298,7 @@ WinGo C:\Windows\system32> ps-resume 2332
 WinGo C:\Windows\system32>
 ```
 ## Cmd
-cmd - Launches cmd.exe with the provided command passed as an argument to the process and returns the result of the command. Strings requiring additional escaping can use the grave accent character.
+**cmd** - Launches cmd.exe with the provided command passed as an argument to the process and returns the result of the command. Strings requiring additional escaping can use the grave accent character.
 ```
 Examples:
 WinGo C:\Windows\system32> cmd whoami
