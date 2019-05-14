@@ -332,3 +332,25 @@ LocalizedResourceName=@%SystemRoot%\system32\shell32.dll,-21781
 
 WinGo C:\Program Files>
 ```
+# Invoking Custom Extension Methods
+Custom extensions are at the core of WinGo and are designed to allow users the flexibility and power to extend the base client. The first step in using custom extensions is to write the source code, add the required references, and save the file in the extensions folder.
+
+Every custom extension needs to consist of a namespace, class, and empty main method, in addition to the methods you implement yourself. To invoke your custom extension, assuming it was loaded without error, use the following syntax:
+```
+[Namespace.Class]::Method(arg1, arg2, arg3...)
+```
+If you need to pass arguments to your methods, the following argument types are currently supported:
+```
+string - "This is a string"
+bool - must be passed as True or False (note capitalization of first letter)
+number - 1234567 (floats are not currently supported and any number you pass will be converted to the long .NET type which is 64 bits)
+
+Example:
+
+[MyNamespace.MyClass]::MyMethod("some string", True, 1024)
+```
+All current WinGo commands that are part of the standard api are essentially just aliased for faster use. If you wanted to use the cmd command and get netstat output, you could invoke it like so:
+```
+[WinGo.Terminal]::Cmd("netstat -ano")
+```
+Unfortunately, there is currently no supported way to alias custom extension methods, however that may be something that is added in the future. If you wanted to help build out the standard api, you could implement more methods and request that they be added as aliased commands. 
