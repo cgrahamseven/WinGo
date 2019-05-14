@@ -5,8 +5,10 @@ WinGo is a tool similar to PsExec by Mark Russinovich, but rather than being tie
 # Supported Windows Versions
 The WinGo server component is currently supported on Windows 8+ and relies heavily on Powershell and the .NET framework. It may work on Windows 7 with later versions of Powershell and the .NET framework, but it likely won't. Your mileage may vary. 
 # Usage
+WinGo supports authentication via password or ntlm hash. If you wish to use a password, simply omit the ntlm hash option.
 ```
-WinGo <address> <username> <domain>
+Usage: fields in <brackets> are required. Fields in (parenthesis) are optional.
+WinGo <address> <username> <domain> (ntlm hash)
 ./WinGo 192.168.7.142 Administrator TESTDOMAIN
 Password: 
 [*] Initiating remote WinGo session...
