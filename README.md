@@ -33,6 +33,28 @@ WinGo C:\WINDOWS\system32>
 There are two folders currently associated with WinGo. They are 'downloads' and 'extensions'. The downloads folder will store any files transferred from the remote host via the 'get' command, and extensions holds any standard api extensions as well as your own custom extensions. 
 # Extensions
 Extensions are simply C# source code files. When writing your own extension, the source file name must be unique, should be lowercase, and must have no file extension. In addition, a second file should be created with the same name as your extension but saved with a .refs file extension. The .refs file must contain a list of .NET assembly references required for your source code to function, with each dll being comma-separated. If you forget to include an assembly reference for a particular class that is used in your source, the shell will throw an exception and your extension will not be loaded. The majority of extensions will likely only require System.dll and System.Core.dll. For reference, you can look at the existing extensions that ship with WinGo as part of the standard api. 
+# Invoking Custom Extension Methods
+Custom extensions are at the core of WinGo and are designed to allow users the flexibility and power to extend the base client. The first step in using custom extensions is to write the source code, add the required references, and save the file in the extensions folder.
+
+Every custom extension needs to consist of a namespace, class, and empty main method, in addition to the methods you implement yourself. To invoke your custom extension, assuming it was loaded without error, use the following syntax:
+```
+[Namespace.Class]::Method(arg1, arg2, arg3...)
+```
+If you need to pass arguments to your methods, the following argument types are currently supported:
+```
+string - "This is a string"
+bool - must be passed as True or False (note capitalization of first letter)
+number - 1234567 (floats are not currently supported and any number you pass will be converted to the long .NET type which is 64 bits)
+
+Example:
+
+[MyNamespace.MyClass]::MyMethod("some string", True, 1024)
+```
+All current WinGo commands that are part of the standard api are essentially just aliased for faster use. If you wanted to use the cmd alias to get netstat output, you could invoke it like so:
+```
+[WinGo.Terminal]::Cmd("netstat -ano")
+```
+Unfortunately, there is currently no supported way to alias custom extension methods, however that may be something that is added in the future. If you wanted to help build out the standard api, you could implement more methods and request that they be added as aliased commands. 
 # Standard API Aliases
 A number of standard api routines are exposed as part of the core functionality of WinGo and their source is contained in the extensions folder under cmd, process, services, and shell. Their usage is as follows:
 ## Shell
@@ -203,34 +225,24 @@ WinGo C:\>
 **services** - Gets a complete list of all installed services on the remote server (includes device drivers). Provides service name, display name, current state, and service type.
 ```
 Examples:
-WinGo C:\Windows\system32> services
-Name: gupdate
-Display Name: Google Update Service (gupdate)
-State: STOPPED
-Type: WIN32_OWN_PROCESS
+WinGo C:\WINDOWS\system32> services
+State     Type                Name                          Display Name                            
 
-Name: gupdatem
-Display Name: Google Update Service (gupdatem)
-State: STOPPED
-Type: WIN32_OWN_PROCESS
-
-Name: GoogleChromeElevationService
-Display Name: Google Chrome Elevation Service
-State: STOPPED
-Type: WIN32_OWN_PROCESS
+STOPPED   WIN32_SHARE_PROCESS AJRouter                      AllJoyn Router Service                  
+STOPPED   WIN32_OWN_PROCESS   ALG                           Application Layer Gateway Service       
+STOPPED   WIN32_SHARE_PROCESS AppIDSvc                      Application Identity                    
+RUNNING   WIN32_SHARE_PROCESS Appinfo                       Application Information                 
+STOPPED   WIN32_SHARE_PROCESS AppMgmt                       Application Management
 
 ...truncated...
 ```
 **service-query** - Provides the same information as the services command, but for the specified service. Requires service name.
 ```
 Examples:
-WinGo C:\Windows\system32> service-query gupdate
-Name: gupdate
-Display Name: Google Update Service (gupdate)
-State: STOPPED
-Type: WIN32_OWN_PROCESS
+WinGo C:\WINDOWS\system32> service-query eventlog
+RUNNING   WIN32_SHARE_PROCESS eventlog                      Windows Event Log                       
 
-WinGo C:\Windows\system32>
+WinGo C:\WINDOWS\system32>
 ```
 **service-start** - Starts the requested service. Requires service name.
 ```
@@ -252,21 +264,16 @@ WinGo C:\Windows\system32>
 **ps** - Gets a list of all running processes and provides details such as pid, process name, process image, and physical memory usage.
 ```
 Examples:
-WinGo C:\Windows\system32> ps
-Pid: 888
-Name: svchost
-Image: C:\Windows\system32\svchost.exe
-Physical Memory Usage (bytes): 9113600
+WinGo C:\WINDOWS\system32> ps
+Pid       Memory Usage (bytes)Process Name                  Process Image Path                                          
 
-Pid: 1776
-Name: svchost
-Image: C:\Windows\system32\svchost.exe
-Physical Memory Usage (bytes): 2617344
+6672      0                   RuntimeBroker                 C:\Windows\System32\RuntimeBroker.exe                       
+3544      577536              svchost                       C:\WINDOWS\system32\svchost.exe                             
+1376      229376              svchost                       C:\WINDOWS\system32\svchost.exe                             
+4132      0                   cmd                           C:\WINDOWS\system32\cmd.exe                                 
+5904      2015232             SearchProtocolHost            C:\WINDOWS\system32\SearchProtocolHost.exe                  
+7676      0                   dllhost                       C:\WINDOWS\system32\DllHost.exe
 
-Pid: 3644
-Name: WmiPrvSE
-Image: C:\Windows\system32\wbem\wmiprvse.exe
-Physical Memory Usage (bytes): 27750400
 ...truncated...
 ```
 **ps-start** - Creates a new process. Takes two arguments; a fully qualified image path and an optional argument to provide to the process at startup.
@@ -336,25 +343,3 @@ LocalizedResourceName=@%SystemRoot%\system32\shell32.dll,-21781
 
 WinGo C:\Program Files>
 ```
-# Invoking Custom Extension Methods
-Custom extensions are at the core of WinGo and are designed to allow users the flexibility and power to extend the base client. The first step in using custom extensions is to write the source code, add the required references, and save the file in the extensions folder.
-
-Every custom extension needs to consist of a namespace, class, and empty main method, in addition to the methods you implement yourself. To invoke your custom extension, assuming it was loaded without error, use the following syntax:
-```
-[Namespace.Class]::Method(arg1, arg2, arg3...)
-```
-If you need to pass arguments to your methods, the following argument types are currently supported:
-```
-string - "This is a string"
-bool - must be passed as True or False (note capitalization of first letter)
-number - 1234567 (floats are not currently supported and any number you pass will be converted to the long .NET type which is 64 bits)
-
-Example:
-
-[MyNamespace.MyClass]::MyMethod("some string", True, 1024)
-```
-All current WinGo commands that are part of the standard api are essentially just aliased for faster use. If you wanted to use the cmd alias to get netstat output, you could invoke it like so:
-```
-[WinGo.Terminal]::Cmd("netstat -ano")
-```
-Unfortunately, there is currently no supported way to alias custom extension methods, however that may be something that is added in the future. If you wanted to help build out the standard api, you could implement more methods and request that they be added as aliased commands. 
