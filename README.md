@@ -29,7 +29,7 @@ WinGo C:\WINDOWS\system32>
 There are two folders currently associated with WinGo. They are 'downloads' and 'extensions'. The downloads folder will store any files transferred from the remote host via the 'get' command, and extensions holds any standard api extensions as well as your own custom extensions. 
 # Extensions
 Extensions are simply C# source code files. When writing your own extension, the source file name must be unique, should be lowercase, and must have no file extension. In addition, a second file should be created with the same name as your extension but saved with a .refs file extension. The .refs file must contain a list of C# assembly references required for your source code to function, with each dll being separated by a comma. If you forget to include an assembly reference for a particular class that is used in your source, the shell will throw an exception and your extension will not be loaded. The majority of extensions will only require System.dll and System.Core.dll. For reference, you can look at the existing extensions that ship with WinGo as part of the standard api. 
-# Standard API
+# Standard API Aliases
 A number of standard api routines are exposed as part of the core functionality of WinGo and their source is contained in the extensions folder under cmd, process, services, and shell. Their usage is as follows:
 ## Shell
 **cd** - Change the current shell directory. This works similarly to cmd.exe in that you can change directories using accessible environment variables, using fully qualified paths, or using paths available in your current directory.
@@ -349,7 +349,7 @@ Example:
 
 [MyNamespace.MyClass]::MyMethod("some string", True, 1024)
 ```
-All current WinGo commands that are part of the standard api are essentially just aliased for faster use. If you wanted to use the cmd command and get netstat output, you could invoke it like so:
+All current WinGo commands that are part of the standard api are essentially just aliased for faster use. If you wanted to use the cmd alias to get netstat output, you could invoke it like so:
 ```
 [WinGo.Terminal]::Cmd("netstat -ano")
 ```
