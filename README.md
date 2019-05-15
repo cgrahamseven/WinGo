@@ -18,6 +18,8 @@ Requires Linux 2.6.23 or later, Intel 64-bit processor
 [Download for Linux](https://github.com/cgrahamseven/WinGoLinux/raw/master/WinGoLinux.tar.gz) SHA256: 1d266a1a3a314074619e89abb992883cb7eab0d0db1f6f207d469015099f801c
 
 
+# License
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 # Usage
 WinGo supports authentication via password or ntlm hash. If you wish to use a password, simply omit the ntlm hash option.
 ```
