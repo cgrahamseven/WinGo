@@ -83,22 +83,22 @@ WinGo C:\Program Files>
 ```
 Examples:
 WinGo C:\> dir
-10/30/2015 12:24:24 AM  <DIR>           $Recycle.Bin
-4/3/2019 11:29:08 AM    <DIR>           Documents and Settings
-2/13/2016 5:22:58 AM    <DIR>           Logs
-9/15/2018 12:33:50 AM   <DIR>           PerfLogs
-9/15/2018 12:33:50 AM   <DIR>           Program Files
-9/15/2018 12:33:50 AM   <DIR>           Program Files (x86)
-9/15/2018 12:33:50 AM   <DIR>           ProgramData
-4/3/2019 11:29:07 AM    <DIR>           Recovery
-4/3/2019 11:27:11 AM    <DIR>           System Volume Information
-9/14/2018 11:09:26 PM   <DIR>           Users
-9/14/2018 11:09:26 PM   <DIR>           Windows
-5/6/2019 10:02:11 AM    <DIR>           Windows.old
-10/30/2015 1:13:43 AM           400228  bootmgr
-10/30/2015 1:13:44 AM           1       BOOTNXT
-4/3/2019 11:27:12 AM            1207959552      pagefile.sys
-4/3/2019 11:27:12 AM            16777216        swapfile.sys
+10/30/2015  12:24 AM    <DIR>           $Recycle.Bin
+4/3/2019    11:29 AM    <DIR>           Documents and Settings
+2/13/2016   5:22 AM     <DIR>           Logs      
+9/15/2018   12:33 AM    <DIR>           PerfLogs  
+9/15/2018   12:33 AM    <DIR>           Program Files
+9/15/2018   12:33 AM    <DIR>           Program Files (x86)
+9/15/2018   12:33 AM    <DIR>           ProgramData
+4/3/2019    11:29 AM    <DIR>           Recovery  
+4/3/2019    11:27 AM    <DIR>           System Volume Information
+9/14/2018   11:09 PM    <DIR>           Users     
+9/14/2018   11:09 PM    <DIR>           Windows   
+5/6/2019    10:02 AM    <DIR>           Windows.old
+10/30/2015  1:13 AM     400,228         bootmgr   
+10/30/2015  1:13 AM     01              BOOTNXT   
+4/3/2019    11:27 AM    1,231,228,928   pagefile.sys
+4/3/2019    11:27 AM    16,777,216      swapfile.sys
 
 
 WinGo C:\>
@@ -107,23 +107,23 @@ WinGo C:\>
 ```
 Examples:
 WinGo C:\> dir
-10/30/2015 12:24:24 AM  <DIR>           $Recycle.Bin
-4/3/2019 11:29:08 AM    <DIR>           Documents and Settings
-2/13/2016 5:22:58 AM    <DIR>           Logs
-9/15/2018 12:33:50 AM   <DIR>           PerfLogs
-9/15/2018 12:33:50 AM   <DIR>           Program Files
-9/15/2018 12:33:50 AM   <DIR>           Program Files (x86)
-9/15/2018 12:33:50 AM   <DIR>           ProgramData
-4/3/2019 11:29:07 AM    <DIR>           Recovery
-4/3/2019 11:27:11 AM    <DIR>           System Volume Information
-9/14/2018 11:09:26 PM   <DIR>           Users
-9/14/2018 11:09:26 PM   <DIR>           Windows
-5/6/2019 10:02:11 AM    <DIR>           Windows.old
-10/30/2015 1:13:43 AM           400228  bootmgr
-10/30/2015 1:13:44 AM           1       BOOTNXT
-5/13/2019 1:29:57 PM            4141488 filetodelete
-4/3/2019 11:27:12 AM            1207959552      pagefile.sys
-4/3/2019 11:27:12 AM            16777216        swapfile.sys
+10/30/2015  12:24 AM    <DIR>           $Recycle.Bin
+4/3/2019    11:29 AM    <DIR>           Documents and Settings
+2/13/2016   5:22 AM     <DIR>           Logs      
+9/15/2018   12:33 AM    <DIR>           PerfLogs  
+9/15/2018   12:33 AM    <DIR>           Program Files
+9/15/2018   12:33 AM    <DIR>           Program Files (x86)
+9/15/2018   12:33 AM    <DIR>           ProgramData
+4/3/2019    11:29 AM    <DIR>           Recovery  
+4/3/2019    11:27 AM    <DIR>           System Volume Information
+9/14/2018   11:09 PM    <DIR>           Users     
+9/14/2018   11:09 PM    <DIR>           Windows   
+5/6/2019    10:02 AM    <DIR>           Windows.old
+10/30/2015  1:13 AM     400,228         bootmgr   
+10/30/2015  1:13 AM     01              BOOTNXT   
+5/15/2019   10:12 AM    4,145,664       filetodelete
+4/3/2019    11:27 AM    1,231,228,928   pagefile.sys
+4/3/2019    11:27 AM    16,777,216      swapfile.sys
 
 
 WinGo C:\> del filetodelete
@@ -138,23 +138,23 @@ WinGo C:\> copy c:\windows\system32\cmd.exe test.exe
 [+] Success
 
 WinGo C:\> dir
-10/30/2015 12:24:24 AM  <DIR>           $Recycle.Bin
-4/3/2019 11:29:08 AM    <DIR>           Documents and Settings
-2/13/2016 5:22:58 AM    <DIR>           Logs
-9/15/2018 12:33:50 AM   <DIR>           PerfLogs
-9/15/2018 12:33:50 AM   <DIR>           Program Files
-9/15/2018 12:33:50 AM   <DIR>           Program Files (x86)
-9/15/2018 12:33:50 AM   <DIR>           ProgramData
-4/3/2019 11:29:07 AM    <DIR>           Recovery
-4/3/2019 11:27:11 AM    <DIR>           System Volume Information
-9/14/2018 11:09:26 PM   <DIR>           Users
-9/14/2018 11:09:26 PM   <DIR>           Windows
-5/6/2019 10:02:11 AM    <DIR>           Windows.old
-10/30/2015 1:13:43 AM           400228  bootmgr
-10/30/2015 1:13:44 AM           1       BOOTNXT
-4/3/2019 11:27:12 AM            1207959552      pagefile.sys
-4/3/2019 11:27:12 AM            16777216        swapfile.sys
-5/13/2019 1:33:03 PM            278528  test.exe
+10/30/2015  12:24 AM    <DIR>           $Recycle.Bin
+4/3/2019    11:29 AM    <DIR>           Documents and Settings
+2/13/2016   5:22 AM     <DIR>           Logs      
+9/15/2018   12:33 AM    <DIR>           PerfLogs  
+9/15/2018   12:33 AM    <DIR>           Program Files
+9/15/2018   12:33 AM    <DIR>           Program Files (x86)
+9/15/2018   12:33 AM    <DIR>           ProgramData
+4/3/2019    11:29 AM    <DIR>           Recovery  
+4/3/2019    11:27 AM    <DIR>           System Volume Information
+9/14/2018   11:09 PM    <DIR>           Users     
+9/14/2018   11:09 PM    <DIR>           Windows   
+5/6/2019    10:02 AM    <DIR>           Windows.old
+10/30/2015  1:13 AM     400,228         bootmgr   
+10/30/2015  1:13 AM     01              BOOTNXT   
+4/3/2019    11:27 AM    1,231,228,928   pagefile.sys
+4/3/2019    11:27 AM    16,777,216      swapfile.sys
+5/15/2019   10:13 AM    278,528         test.exe  
 
 
 WinGo C:\>
@@ -226,21 +226,23 @@ WinGo C:\>
 ```
 Examples:
 WinGo C:\WINDOWS\system32> services
-State     Type                Name                          Display Name                            
+State       Type                        Name            Display Name
 
-STOPPED   WIN32_SHARE_PROCESS AJRouter                      AllJoyn Router Service                  
-STOPPED   WIN32_OWN_PROCESS   ALG                           Application Layer Gateway Service       
-STOPPED   WIN32_SHARE_PROCESS AppIDSvc                      Application Identity                    
-RUNNING   WIN32_SHARE_PROCESS Appinfo                       Application Information                 
-STOPPED   WIN32_SHARE_PROCESS AppMgmt                       Application Management
-
+STOPPED     WIN32_SHARE_PROCESS         AJRouter        AllJoyn Router Service
+STOPPED     WIN32_OWN_PROCESS           ALG             Application Layer Gateway Service
+STOPPED     WIN32_SHARE_PROCESS         AppIDSvc        Application Identity
+RUNNING     WIN32_SHARE_PROCESS         Appinfo         Application Information
+STOPPED     WIN32_SHARE_PROCESS         AppMgmt         Application Management
+STOPPED     WIN32_SHARE_PROCESS         AppReadiness    App Readiness
+STOPPED     WIN32_OWN_PROCESS           AppVClient      Microsoft App-V Client
+STOPPED     WIN32_SHARE_PROCESS         AppXSvc         AppX Deployment Service (AppXSVC)
 ...truncated...
 ```
 **service-query** - Provides the same information as the services command, but for the specified service. Requires service name.
 ```
 Examples:
 WinGo C:\WINDOWS\system32> service-query eventlog
-RUNNING   WIN32_SHARE_PROCESS eventlog                      Windows Event Log                       
+RUNNING     WIN32_SHARE_PROCESS         eventlog        Windows Event Log
 
 WinGo C:\WINDOWS\system32>
 ```
@@ -265,15 +267,28 @@ WinGo C:\Windows\system32>
 ```
 Examples:
 WinGo C:\WINDOWS\system32> ps
-Pid       Memory Usage (bytes)Process Name                  Process Image Path                                          
+Pid         Memory Usage (bytes)        Process Name            Process Image Path
 
-6672      0                   RuntimeBroker                 C:\Windows\System32\RuntimeBroker.exe                       
-3544      577536              svchost                       C:\WINDOWS\system32\svchost.exe                             
-1376      229376              svchost                       C:\WINDOWS\system32\svchost.exe                             
-4132      0                   cmd                           C:\WINDOWS\system32\cmd.exe                                 
-5904      2015232             SearchProtocolHost            C:\WINDOWS\system32\SearchProtocolHost.exe                  
-7676      0                   dllhost                       C:\WINDOWS\system32\DllHost.exe
-
+6672        368,640                     RuntimeBroker           C:\Windows\System32\RuntimeBroker.exe
+3544        00                          svchost                 C:\WINDOWS\system32\svchost.exe
+1376        00                          svchost                 C:\WINDOWS\system32\svchost.exe
+4132        00                          cmd                     C:\WINDOWS\system32\cmd.exe
+7676        208,896                     dllhost                 C:\WINDOWS\system32\DllHost.exe
+2356        00                          SearchUI                C:\Windows\SystemApps\Microsoft.Windows.Cortana_cw5n1h2txyewy\SearchUI.exe
+8068        00                          conhost                 C:\WINDOWS\system32\conhost.exe
+5112        6,283,264                   explorer                C:\WINDOWS\Explorer.EXE
+6964        00                          RuntimeBroker           C:\Windows\System32\RuntimeBroker.exe
+1564        00                          ApplicationFrameHost    C:\WINDOWS\system32\ApplicationFrameHost.exe
+1760        00                          svchost                 C:\WINDOWS\System32\svchost.exe
+4320        1,585,152                   conhost                 C:\WINDOWS\system32\conhost.exe
+3528        00                          ctfmon                  C:\WINDOWS\system32\ctfmon.exe
+5892        540,672                     RuntimeBroker           C:\Windows\System32\RuntimeBroker.exe
+1360        1,495,040                   SearchIndexer           C:\WINDOWS\system32\SearchIndexer.exe
+768         3,743,744                   svchost                 C:\WINDOWS\system32\svchost.exe
+9332        1,265,664                   LogonUI                 C:\WINDOWS\System32\LogonUI.exe
+6280        192,512                     RuntimeBroker           C:\Windows\System32\RuntimeBroker.exe
+7264        724,992                     RuntimeBroker           C:\Windows\System32\RuntimeBroker.exe
+2732        7,467,008                   WmiPrvSE                C:\WINDOWS\system32\wbem\wmiprvse.exe
 ...truncated...
 ```
 **ps-start** - Creates a new process. Takes two arguments; a fully qualified image path and an optional argument to provide to the process at startup.
@@ -332,7 +347,7 @@ Active Connections
   TCP    0.0.0.0:49154          0.0.0.0:0              LISTENING       792
   TCP    0.0.0.0:49156          0.0.0.0:0              LISTENING       736
   TCP    0.0.0.0:49157          0.0.0.0:0              LISTENING       748
-  ...truncated..
+  ...truncated...
   
 cmd <argument that has spaces which must be denoted with double quotes and which requires additional quotes (use grave accent)>
 WinGo C:\Program Files> cmd "type `c:\program files\desktop.ini`"
