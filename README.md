@@ -235,6 +235,7 @@ WinGo C:\> put test.exe test.exe
 
 WinGo C:\>
 ```
+**exit** - terminates the remote administration session.
 ## Services
 **services** - Gets a complete list of all installed services on the remote server (includes device drivers). Provides service name, display name, current state, and service type.
 ```
