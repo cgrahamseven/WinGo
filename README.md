@@ -5,9 +5,15 @@ WinGo is a tool similar to PsExec by Mark Russinovich, but rather than being tie
 # Supported Windows Versions
 The WinGo server component is currently supported on Windows 8+ and relies heavily on Powershell and the .NET framework. It may work on Windows 7 with later versions of Powershell and the .NET framework, but it likely won't. Your mileage may vary. 
 # Downloads
+Requires macOS 10.10 or later, Intel 64-bit processor
+
 [Download for MacOS](https://github.com/cgrahamseven/WinGoMacOS/raw/master/WinGoMacOS.tar.gz) SHA256: 5fd3ba284cd6ce1f28081df267c208a9a84b18ddc9538ec68e1b3cce88da5f8d
 
+Requires Windows 7 or later, Intel 64-bit processor
+
 [Download for Windows](https://github.com/cgrahamseven/WinGoWindows/raw/master/WinGoWindows.zip) SHA256: 47ad29bf0cfcb733bf13b702e38595f5b7f1b8a7822ddb0920f1064d6631cd1d
+
+Requires Linux 2.6.23 or later, Intel 64-bit processor
 
 [Download for Linux](https://github.com/cgrahamseven/WinGoLinux/raw/master/WinGoLinux.tar.gz) SHA256: 1d266a1a3a314074619e89abb992883cb7eab0d0db1f6f207d469015099f801c
 
