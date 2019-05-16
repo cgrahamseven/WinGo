@@ -3,7 +3,7 @@ An extendable cross-platform Windows remote administration tool written in Go.
 # About
 WinGo is a tool similar to PsExec by Mark Russinovich, but rather than being tied to running the client on Windows, you can run it on Windows, MacOS, or Linux. WinGo was designed to be extendable by the end-user and allows you to write extensions in C# that are loaded automatically at runtime on the remote administration target. This is possible because the WinGo server-side shell runs within powershell on your target. This also eliminates the need to ship a large binary over the network like PsExec and it allows the server-side shell to run both itself and its extensions entirely in memory. 
 # Supported Windows Versions
-The WinGo server component is currently supported on Windows 8+ as well as Server 2012 R2+ and relies heavily on Powershell and the .NET framework. It may work on Windows 7 with later versions of Powershell and the .NET framework, but it likely won't. Your mileage may vary. 
+The WinGo server component has been tested on Windows 8+ as well as Server 2012 R2+ and relies heavily on Powershell and the .NET framework. Windows 7 and earlier Windows Server versions are not supported, although you may still have luck with them depending on the .NET framework version installed. Desktops and servers that have had Powershell severely restricted or disabled will obviously prevent WinGo from functioning. 
 # Downloads
 Requires macOS 10.10 or later, Intel 64-bit processor
 
