@@ -27,6 +27,7 @@ Usage: fields in <brackets> are required. Fields in (parenthesis) are optional.
 WinGo <address> <username> <domain> (ntlm hash)
 ./WinGo 192.168.7.142 Administrator TESTDOMAIN
 Password: 
+[*] Checking for new extensions...
 [*] Initiating remote WinGo session...
 [*] Loading extensions...
 [+] Successfully loaded extension: cmd
@@ -41,7 +42,7 @@ __ |/ |/ / _  / _  / / / /_/ / / /_/ /
 ____/|__/  /_/  /_/ /_/\____/  \____/ 
                                                                           
 
-Windows Remote Administration Shell v1.0
+Windows Remote Administration Shell v1.1
 
 WinGo C:\WINDOWS\system32> 
 ```
