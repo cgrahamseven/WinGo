@@ -480,4 +480,8 @@ WinGo C:\WINDOWS\system32> reg-setvalue HKLM\Software\Microsoft\Windows\CurrentV
 (An existing value name has been provided as well as a value type. This command will now CHANGE the value type of 'NewValue' from a 'dword' to a 'string' (REG_SZ) and set its value to 'blahblah'.)
 WinGo C:\WINDOWS\system32> reg-setvalue HKLM\Software\Microsoft\Windows\CurrentVersion\Test NewValue blahblah string
 [+] Success
+
+(Changes the existing value name 'NewValue's type to REG_BINARY and uses the base64-encoded binary data 01 02 03 04 as the value to set. The registry extension will convert the provided base64-encoded binary data to binary and set it.)
+WinGo C:\WINDOWS\system32> reg-setvalue HKLM\Software\Microsoft\Windows\CurrentVersion\Test NewValue AQIDBA== binary
+[+] Success
 ```
