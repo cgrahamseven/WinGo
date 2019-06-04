@@ -33,6 +33,7 @@ Password:
 [*] Loading extensions...
 [+] Successfully loaded extension: cmd
 [+] Successfully loaded extension: process
+[+] Successfully loaded extension: registry
 [+] Successfully loaded extension: services
 [+] Successfully loaded extension: shell
 
@@ -43,9 +44,9 @@ __ |/ |/ / _  / _  / / / /_/ / / /_/ /
 ____/|__/  /_/  /_/ /_/\____/  \____/ 
                                                                           
 
-Windows Remote Administration Shell v1.1
+Windows Remote Administration Shell v1.2
 
-WinGo C:\WINDOWS\system32> 
+WinGo C:\WINDOWS\system32>
 ```
 # Folders
 There are two folders currently associated with WinGo. They are 'downloads' and 'extensions'. The downloads folder will store any files transferred from the remote host via the 'get' command, and extensions holds any standard api extensions as well as your own custom extensions. 
