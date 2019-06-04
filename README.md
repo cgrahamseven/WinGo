@@ -377,3 +377,107 @@ LocalizedResourceName=@%SystemRoot%\system32\shell32.dll,-21781
 
 WinGo C:\Program Files>
 ```
+## Registry
+```
+Predefined hive values for accessing subkeys:
+
+HKLM - represents HKEY_LOCAL_MACHINE
+HKCU - represents HKEY_CURRENT_USER
+HKUSERS - represents HKEY_USERS
+HKCR - represents HKEY_CLASSES_ROOT
+```
+**reg-listsubkeys** - Lists all subkeys under a registry hive or subkey. Requires at a minimum a hive value. 
+```
+Examples:
+WinGo C:\WINDOWS\system32> reg-listsubkeys HKLM\Software\Microsoft\Windows\CurrentVersion
+AccountPicture
+ActionCenter
+AdvertisingInfo
+App Management
+App Paths
+AppHost
+Applets
+ApplicationFrame
+AppModel
+AppModelUnlock
+AppReadiness
+Appx
+Audio
+...truncated...
+```
+**reg-listkeyvalues** - Lists a key's value names and associated values. Where values are of type binary, they will be presented as a hex dump. Requires at a minimum a hive value.
+```
+Examples:
+WinGo C:\WINDOWS\system32> reg-listkeyvalues HKLM\Software\Microsoft\Windows\CurrentVersion
+Name                            Value               
+
+ProgramFilesDir                 C:\Program Files    
+CommonFilesDir                  C:\Program Files\Common Files
+ProgramFilesDir (x86)           C:\Program Files (x86)
+CommonFilesDir (x86)            C:\Program Files (x86)\Common Files
+CommonW6432Dir                  C:\Program Files\Common Files
+DevicePath                      C:\WINDOWS\inf      
+MediaPathUnexpanded             C:\WINDOWS\Media    
+ProgramFilesPath                C:\Program Files    
+ProgramW6432Dir                 C:\Program Files    
+SM_ConfigureProgramsName        Set Program Access and Defaults
+SM_GamesName                    Games
+```
+**reg-createsubkey** - Create a new subkey under an existing hive. Requires at a minimum an existing hive and new subkey name.
+```
+Examples:
+(Create a single new sub key called Test)
+WinGo C:\WINDOWS\system32> reg-createsubkey HKLM\Software\Microsoft\Windows\CurrentVersion\Test
+[+] Success
+
+(Create a new sub key under previously created subkey Test called more)
+WinGo C:\WINDOWS\system32> reg-createsubkey HKLM\Software\Microsoft\Windows\CurrentVersion\Test\more
+[+] Success
+
+(Create multiple children under Test\More. Creates a subkey called 'even' and another called 'more' under 'even'.)
+WinGo C:\WINDOWS\system32> reg-createsubkey HKLM\Software\Microsoft\Windows\CurrentVersion\Test\more\even\more
+[+] Success
+```
+**reg-deletesubkey** - Deletes a single subkey under an existing hive. Requires at a minimum an existing hive and subkey name.
+```
+Examples:
+WinGo C:\WINDOWS\system32> reg-deletesubkey HKLM\Software\Microsoft\Windows\CurrentVersion\Test
+[+] Success
+```
+**reg-deletetree** - Deletes an entire registry tree. This command is used when you have a subkey that has multiple children and you want to remove the entire tree. You cannot use reg-deletesubkey to delete a registry key that has one or more children. In that case, use this command. 
+```
+Examples:
+(Consider previous example under reg-createsubkey where Test has children: more\even\more)
+WinGo C:\WINDOWS\system32> reg-deletetree HKLM\Software\Microsoft\Windows\CurrentVersion\Test
+[+] Success
+```
+**reg-getvalue** - Retrieves the value for the specified subkey and value name. Requires both a hive and/or subkey as well as the value name to retrieve the value for. Values that contain binary data will be presented as a hex dump.
+```
+Examples:
+WinGo C:\WINDOWS\system32> reg-getvalue HKLM\Software\Microsoft\Windows\CurrentVersion ProgramFilesDir
+C:\Program Files
+```
+**reg-setvalue** - Sets a subkey value. Requires at least 3 arguments. When a subkey, EXISTING value name, and value are given, this command will look up the existing value data type (REG_SZ, DWORD, etc) and set the value with what you have provided as the existing data type. If you provide a subkey, EXISTING value name, value, and value type, this command will CHANGE the existing value type to the value type you specified and set the value to what you provided. If you provide a  subkey, a NEW value name, and a value, you MUST provide the value type as well. In that case, a new value will be created. 
+```
+The following are the predefined value types of which one must be used when creating a new value name:
+dword - a 32 bit integer value (ie REG_DWORD)
+qword - a 64 bit integer value (ie REG_QWORD)
+estring - an expandable null-terminated string (may contain an environment var such as %SYSTEMROOT% ie REG_EXPAND_SZ) 
+mstring - a multi string that may contain several null-terminated strings (ie REG_MULTI_SZ)
+string - a simple null-terminated string (ie REG_SZ)
+binary - contains binary data (IMPORTANT: You must base64 encode your binary data and provide that string as the argument to reg-setvalue for the value data in order to set data of this type)
+```
+```
+Examples:
+(An existing value name of SM_GamesName has been provided. Since only a value name and value data was provided, this command will result in WinGo looking up the data type for the existing value 'SM_GamesName' and then setting the value to 'MyGames'.)
+WinGo C:\WINDOWS\system32> reg-setvalue HKLM\Software\Microsoft\Windows\CurrentVersion SM_GamesName MyGames
+[+] Success
+
+(A new value name of 'NewValue' has been provided. In this case, a value type is required and 'dword' has been chosen. This command will create a new value name under the subkey 'Test' called 'NewValue' with a value type of 'dword' set to '1'.)
+WinGo C:\WINDOWS\system32> reg-setvalue HKLM\Software\Microsoft\Windows\CurrentVersion\Test NewValue 1 dword
+[+] Success
+
+(An existing value name has been provided as well as a value type. This command will now CHANGE the value type of 'NewValue' from a 'dword' to a 'string' (REG_SZ) and set its value to 'blahblah'.)
+WinGo C:\WINDOWS\system32> reg-setvalue HKLM\Software\Microsoft\Windows\CurrentVersion\Test NewValue blahblah string
+[+] Success
+```
