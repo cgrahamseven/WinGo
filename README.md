@@ -7,15 +7,15 @@ The WinGo server component has been tested on Windows 8+ as well as Server 2012 
 # Downloads
 Requires macOS 10.10 or later, Intel 64-bit processor
 
-[Download for MacOS](https://github.com/cgrahamseven/WinGoMacOS/raw/master/WinGoMacOS.tar.gz) SHA256: f4796f8761abf0a64d4dd9c40fa42a926c3a7d673413140c87a313b47a732ece
+[v1.2 download for MacOS](https://github.com/cgrahamseven/WinGoMacOS/raw/master/WinGoMacOS.tar.gz) SHA256: bd93d873afedcf76cca17046aa41ddb7148968508c9e08c32095c54cb6467727
 
 Requires Windows 7 or later, Intel 64-bit processor
 
-[Download for Windows](https://github.com/cgrahamseven/WinGoWindows/raw/master/WinGoWindows.zip) SHA256: df0dd8c9893785b52c18e031d5a463833403b917b7556fb61d34376c91f986d4
+[v1.2 download for Windows](https://github.com/cgrahamseven/WinGoWindows/raw/master/WinGoWindows.zip) SHA256: 1bf3784ab258a1b9681862131e72aca89d05632459e4113ef7878511757b37af
 
 Requires Linux 2.6.23 or later, Intel 64-bit processor
 
-[Download for Linux](https://github.com/cgrahamseven/WinGoLinux/raw/master/WinGoLinux.tar.gz) SHA256: e5f3d4fb9303ae817067f7074c42f394aff2f7b0875ab294693cb30b978722bd
+[v1.2 download for Linux](https://github.com/cgrahamseven/WinGoLinux/raw/master/WinGoLinux.tar.gz) SHA256: 49baadb5ca28a3a0bd4cb685de3a744b3ed15da7415c629b37a373a0616a5489
 
 
 # Extensions License
